@@ -20,7 +20,7 @@ class TestUserAddToBasketFromProductPage():
 
     def test_user_cant_see_success_message(self, browser):
 
-        page = ProductPage(self, browser, self.link)
+        page = ProductPage(browser, self.link)
         page.open()
         page.should_not_be_success_message()
 
