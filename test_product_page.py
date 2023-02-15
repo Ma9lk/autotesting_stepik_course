@@ -28,6 +28,7 @@ class TestUserAddToBasketFromProductPage():
 
         link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/hacking-exposed-wireless_208/'
         page = ProductPage(browser, link)
+        page.open()
         page.should_be_add_to_basket()
         page.should_be_comparison_names()
         page.should_be_comparison_prices()
