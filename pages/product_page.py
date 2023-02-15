@@ -1,8 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import re
-
-
 
 class ProductPage(BasePage):
 
@@ -33,3 +30,11 @@ class ProductPage(BasePage):
     def should_be_product_price_in_basket(self):
         product_price_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_BASKET_MESSAGE)
         return product_price_in_basket.text
+
+    def should_be_comparison_names(self):
+        assert self.should_be_name_of_book() == self.should_be_succsess_message(), \
+            f'Название продукта {self.should_be_name_of_book()} не совпадает c текстом в сообщении {self.should_be_succsess_message()}'
+
+    def should_be_comparison_prices(self):
+        assert self.should_be_product_price() == self.should_be_product_price_in_basket(), \
+            f'Цена продукта {self.should_be_product_price} не совпадает c ценой в корзине {self.should_be_product_price_in_basket()}'
